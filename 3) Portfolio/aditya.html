@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #ff8d13;
+            --text-color: #ffffff;
+            --bg-color: #000000;
+            --gradient-start: #1a1a1a;
+            --gradient-end: #000000;
+        }
+
+        [data-bs-theme="light"] {
+            --primary-color: #ff8d13;
+            --text-color: #000000;
+            --bg-color: #ffffff;
+            --gradient-start: #f5f5f5;
+            --gradient-end: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-left: 1rem;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 35rem;
+            height: 35rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+            filter: blur(200px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        h1 {
+            font-family: "Corinthia", serif;
+            font-size: clamp(4rem, 15vw, 18rem);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h1::after {
+            content: 'Software Engineer';
+            position: absolute;
+            bottom: -2rem;
+            right: 0;
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            font-family: "Poppins", serif;
+            text-transform: uppercase;
+            letter-spacing: 0.8rem;
+        }
+
+        .profile-img {
+            width: clamp(200px, 40vw, 400px);
+            height: auto;
+            border-radius: 50%;
+            margin: 2rem 0;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(255, 141, 19, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .social-sidebar {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateX(10px);
+            background: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+        .btn-custom {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background: var(--primary-color);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .social-sidebar {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 2rem;
+            }
+
+            .hero-section {
+                padding: 1rem;
+            }
+
+            h1::after {
+                position: relative;
+                display: block;
+                margin-top: 1rem;
+                text-align: center;
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa-brands fa-atlassian" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+            </a>
+            <div class="d-flex align-items-center">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <i class="fas fa-bars" style="color: var(--primary-color);"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-custom mx-2 my-1">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-custom mx-2 my-1">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./about.html" class="btn btn-custom mx-2 my-1">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-custom mx-2 my-1">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="btn btn-custom mx-2 my-1" style="background: var(--primary-color); color: var(--bg-color);">Let's Talk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid">
+        <section class="hero-section">
+            <div class="greeting" id="greeting"></div>
+            <h1>Aditya R M</h1>
+            <img src="/api/placeholder/400/400" alt="Profile Image" class="profile-img">
+            <p class="lead text-center" style="max-width: 600px;">
+                Turning ideas into elegant, efficient, and scalable solutions
+            </p>
+            
+            <div class="social-sidebar">
+                <a href="#" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme Toggle Function
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (html.getAttribute('data-bs-theme') === 'dark') {
+                html.setAttribute('data-bs-theme', 'light');
+                themeToggle.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.setAttribute('data-bs-theme', 'dark');
+                themeToggle.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // Dynamic Greeting
+        function setGreeting() {
+            const hour = new Date().getHours();
+            const greetingElement = document.getElementById('greeting');
+            let greeting;
+
+            if (hour >= 5 && hour < 12) {
+                greeting = "Good Morning!";
+            } else if (hour >= 12 && hour < 18) {
+                greeting = "Good Afternoon!";
+            } else {
+                greeting = "Good Evening!";
+            }
+
+            greetingElement.textContent = greeting;
+        }
+
+        // Initialize
+        setGreeting();
+    </script>
+</body>
+</html>

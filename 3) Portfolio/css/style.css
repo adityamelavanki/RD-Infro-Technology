@@ -225,3 +225,60 @@
     background-color: transparent;
     border-color: #ff8d13;
 }
+.navbar{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width:100%;
+    background:transparent;
+    
+}
+.about-info{
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.about-me{
+    color:white;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+.big{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.about-info{
+  font-size: medium;
+  display:flex;
+  flex-direction: column;
+  align-items:flex-end;
+  justify-content: flex-end;
+}
+.profile{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top:-300px;
+}
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes image further to the right */
+  padding: 0 50px; /* Adds padding on both sides */
+}
+
+.about-info {
+    flex: -1; /* Allows text section to take available space */
+}
+
+.profile {
+    width: 150px;  /* Increases size */
+    height: auto; /* Maintains aspect ratio */
+    margin-left: 50px; /* Moves the image further right */
+}

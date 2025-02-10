@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+
+    <style>
+
+        body {
+            background: #121212;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            padding: 15px 50px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        }
+        .navbar img {
+            height: 50px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: orange;
+        }
+        .container {
+            background:orange;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            width: 80%;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 80px auto;
+        }
+        .profile {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid white;
+            background:black;
+        }
+        .info {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .info h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .info p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .bio {
+            max-width: 250px;
+            font-size: 14px;
+            text-align: right;
+        }
+        .work-section {
+
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .progress-bar {
+            width: 70%;
+            height: 8px;
+            background: #444;
+            border-radius: 5px;
+            position: relative;
+        }
+        .progress {
+            height: 100%;
+            background: orange;
+            border-radius: 5px;
+        }
+        .toggle-button {
+            display: block;
+            background: orange;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100px;
+            margin: 20px auto;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html"><img src="./images/logo1.png" alt="Logo"></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#">Services</a>
+            <a href="#" onclick="toggleWorkSection()">Work</a>
+            <a href="about.html">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Pages</a>
+            <a href="./contact.html" style="color: orange; border: 2px solid orange; padding: 5px 10px; border-radius: 5px;">Let's Talk</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <img src="./images/anime-profile.png" class="profile" alt="Profile Picture">
+        <div class="info">
+            <h1>Aditya R Melavanki</h1>
+            <p><strong>Date of Birth:</strong> June 12, 2005</p>
+            <p><strong>Location:</strong> Belgaum, Karnataka</p>
+            <p><strong>Email:</strong> adityamelavanki2005@gmail.com</p>
+            <p><strong>Phone:</strong> +91-6363668490</p>
+        </div>
+        <div class="bio">
+            <p>I am a passionate developer, always eager to learn and build amazing things. Exploring the world of technology and innovation!</p>
+        </div>
+    </div>
+
+    <div id="work-section" class="work-section">
+        <h1>Skills</h1>
+        <div class="skills">
+            <div class="skill"><span>Java</span><span>90%</span><div class="progress-bar"><div class="progress" style="width: 90%;"></div></div></div>
+            <div class="skill"><span>JavaScript</span><span>75%</span><div class="progress-bar"><div class="progress" style="width: 75%;"></div></div></div>
+            <div class="skill"><span>HTML5</span><span>95%</span><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
+            <div class="skill"><span>CSS3</span><span>95%</span><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
+            <div class="skill"><span>WordPress</span><span>85%</span><div class="progress-bar"><div class="progress" style="width: 85%;"></div></div></div>
+            <div class="skill"><span>SEO</span><span>80%</span><div class="progress-bar"><div class="progress" style="width: 80%;"></div></div></div>
+            <div class="skill"><span>MySQL</span><span>95%</span><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
+            <div class="skill"><span>Python</span><span>95%</span><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
+        </div>
+    </div>
+
+
+</body>
+</html>
