@@ -64,18 +64,30 @@
             overflow: hidden;
         }
 
+        .cimg{
+            scale: 1.5;
+            position: absolute;
+            top: 60%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
 /* Font */
 
         h1 {
-            color: var(--white-clr);
+            color: var(--purple-clr);
             font-size: 18rem;
             font-family: "Corinthia", serif;
-            font-weight: 400;
+            font-weight: 800;
             position: absolute;
-            top: 46%;
+            top: 55%;
+            
         }
 
         h1::after {
+            color: white;
+            font-weight: 800;
             content: 'Software Engineer';
             position: absolute;
             bottom: 12%;
